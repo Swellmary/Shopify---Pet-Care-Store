@@ -1,0 +1,31 @@
+<div class="sticky-note" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffeb3b;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+">
+  {{ section.settings.note_text }}
+</div>
+
+{% schema %}
+{
+  "name": "Sticky Note",
+  "settings": [
+    {
+      "type": "text",
+      "id": "note_text",
+      "label": "Note Text",
+      "default": "Welcome to our store!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky Note"
+    }
+  ]
+}
+{% endschema %}
