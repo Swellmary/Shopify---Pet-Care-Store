@@ -1,41 +1,139 @@
-<div class="testimonials" style="
-  padding: 40px 20px;
-  text-align: center;
-">
-  <h2 style="margin-bottom: 30px;">{{ section.settings.heading }}</h2>
+<div id="testimonials-{{ section.id }}" class="testimonials-section">
+  <h2 class="testimonials-heading">{{ section.settings.heading }}</h2>
   
-  <div class="testimonials-grid" style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  ">
-    {% for block in section.blocks %}
-      <div class="testimonial-card" style="
-        flex: 1 1 300px;
-        max-width: 350px;
-        padding: 25px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      ">
-        <p style="
-          font-style: italic;
-          font-size: 16px;
-          line-height: 1.6;
-          margin-bottom: 15px;
-        ">"{{ block.settings.quote }}"</p>
-        <span style="
-          font-weight: bold;
-          color: #666;
-        ">- {{ block.settings.author }}</span>
-      </div>
-    {% endfor %}
+  <div class="testimonials-wrapper">
+    <button class="slider-arrow slider-prev" aria-label="Previous">&#8249;</button>
+    
+    <div id="testimonials-grid-{{ section.id }}" class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <p class="testimonial-quote">"{{ block.settings.quote }}"</p>
+          <span class="testimonial-author">- {{ block.settings.author }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <button class="slider-arrow slider-next" aria-label="Next">&#8250;</button>
   </div>
 </div>
+
+<style>
+  #testimonials-{{ section.id }} {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  #testimonials-{{ section.id }} .testimonials-heading {
+    margin-bottom: 30px;
+  }
+
+  #testimonials-{{ section.id }} .testimonials-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px; /* space for arrows */
+  }
+
+  #testimonials-{{ section.id }} .testimonials-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #testimonials-{{ section.id }} .testimonials-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  #testimonials-{{ section.id }} .testimonial-card {
+    flex: 0 0 300px;
+    min-width: 300px;
+    max-width: 350px;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    scroll-snap-align: start;
+  }
+
+  #testimonials-{{ section.id }} .testimonial-quote {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  #testimonials-{{ section.id }} .testimonial-author {
+    font-weight: bold;
+    color: #666;
+  }
+
+  #testimonials-{{ section.id }} .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+
+  #testimonials-{{ section.id }} .slider-arrow:hover {
+    background: #f5f5f5;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  }
+
+  #testimonials-{{ section.id }} .slider-prev {
+    left: 0;
+  }
+
+  #testimonials-{{ section.id }} .slider-next {
+    right: 0;
+  }
+
+  /* Hide arrows on mobile, allow swipe */
+  @media (max-width: 600px) {
+    #testimonials-{{ section.id }} .testimonials-wrapper {
+      padding: 0 10px;
+    }
+    #testimonials-{{ section.id }} .slider-arrow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var section = document.getElementById('testimonials-{{ section.id }}');
+    var grid = document.getElementById('testimonials-grid-{{ section.id }}');
+    var prevBtn = section.querySelector('.slider-prev');
+    var nextBtn = section.querySelector('.slider-next');
+    var card = grid.querySelector('.testimonial-card');
+    var scrollAmount = card ? card.offsetWidth + 20 : 320;
+
+    prevBtn.addEventListener('click', function() {
+      grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', function() {
+      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  });
+</script>
 
 {% schema %}
 {
