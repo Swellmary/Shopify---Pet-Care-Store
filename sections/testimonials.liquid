@@ -1,12 +1,14 @@
-<div class="testimonials">
-  <h2>{{ section.settings.heading }}</h2>
+<div class="testimonials py-10 px-5 text-center">
+  <h2 class="text-2xl font-bold mb-8">{{ section.settings.heading }}</h2>
   
-  {% for block in section.blocks %}
-    <div class="testimonial">
-      <p>"{{ block.settings.quote }}"</p>
-      <span>- {{ block.settings.author }}</span>
-    </div>
-  {% endfor %}
+  <div class="flex flex-wrap justify-center gap-5 max-w-6xl mx-auto">
+    {% for block in section.blocks %}
+      <div class="flex-1 min-w-[300px] max-w-[350px] p-6 border border-gray-200 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow">
+        <p class="italic text-base leading-relaxed mb-4">"{{ block.settings.quote }}"</p>
+        <span class="font-bold text-gray-600">- {{ block.settings.author }}</span>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% schema %}
@@ -26,7 +28,7 @@
       "name": "Testimonial",
       "settings": [
         {
-          "type": "text",
+          "type": "textarea",
           "id": "quote",
           "label": "Quote",
           "default": "Great store!"
