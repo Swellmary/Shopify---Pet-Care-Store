@@ -313,6 +313,7 @@
       {{ content_for_layout }}
     </main>
 
+    {% section 'testimonials' %}
     {% sections 'footer-group' %}
 
     <ul hidden>
@@ -374,6 +375,5 @@
     {%- endif -%}
 
     {% section 'sticky-note' %}
-    {% section 'testimonials' %}
   </body>
 </html>
