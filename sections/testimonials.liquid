@@ -1,11 +1,37 @@
-<div class="testimonials py-10 px-5 text-center">
-  <h2 class="text-2xl font-bold mb-8">{{ section.settings.heading }}</h2>
+<div class="testimonials" style="
+  padding: 40px 20px;
+  text-align: center;
+">
+  <h2 style="margin-bottom: 30px;">{{ section.settings.heading }}</h2>
   
-  <div class="flex flex-wrap justify-center gap-5 max-w-6xl mx-auto">
+  <div class="testimonials-grid" style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  ">
     {% for block in section.blocks %}
-      <div class="flex-1 min-w-[300px] max-w-[350px] p-6 border border-gray-200 rounded-xl bg-white shadow-md hover:shadow-lg transition-shadow">
-        <p class="italic text-base leading-relaxed mb-4">"{{ block.settings.quote }}"</p>
-        <span class="font-bold text-gray-600">- {{ block.settings.author }}</span>
+      <div class="testimonial-card" style="
+        flex: 1 1 300px;
+        max-width: 350px;
+        padding: 25px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      ">
+        <p style="
+          font-style: italic;
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 15px;
+        ">"{{ block.settings.quote }}"</p>
+        <span style="
+          font-weight: bold;
+          color: #666;
+        ">- {{ block.settings.author }}</span>
       </div>
     {% endfor %}
   </div>
