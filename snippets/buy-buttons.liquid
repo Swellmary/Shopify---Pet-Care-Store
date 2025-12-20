@@ -100,54 +100,7 @@
       {%- endform -%}
     </product-form>
 
-    {% comment %} // AJAX add to cart and cart icon update script
-     Developer: Mary {% endcomment %}
-    <script>
-      // INTERCEPT the form! Only if no built-in cart component
-      const cartComponent = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-      if (!cartComponent) {
-        document.querySelector('form[data-type="add-to-cart-form"]').addEventListener('submit', function(e) {
 
-          // Step 1: STOP the normal reload
-          e.preventDefault();
-
-          // Step 2: Get form data
-          const formData = new FormData(e.target);
-          const variantId = formData.get('id');
-          const quantity = formData.get('quantity') || 1;
-
-          // Step 3: Add to cart using fetch (no reload)
-          fetch('/cart/add.js', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id: variantId,
-              quantity: quantity
-            })
-          })
-          .then(response => response.json())
-          .then(data => {
-
-            // Step 4: Update ONLY the cart icon
-            return fetch('/?sections=cart-icon-bubble');
-          })
-          .then(response => response.json())
-          .then(data => {
-
-            // Step 5: Replace cart icon HTML
-            const cartIconElement = document.getElementById('cart-icon-bubble');
-            if (cartIconElement && data['cart-icon-bubble']) {
-              cartIconElement.outerHTML = data['cart-icon-bubble'];
-            }
-
-            console.log('Cart updated without reload! 🎉');
-          });
-
-        });
-      }
-    </script>
-    {% comment %} //end of AJAX add to cart and cart icon update script
-    //end-developer: Mary {% endcomment %}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">
