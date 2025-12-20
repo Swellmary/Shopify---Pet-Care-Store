@@ -9,7 +9,9 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/ChatGPT_Image_Dec_20_2025_02_53_36_PM_1.png",
     "logo_width": 90,
+    "favicon": "shopify://shop_images/ChatGPT_Image_Dec_20_2025_02_53_36_PM_1_a900072c-ab1a-4d33-897c-242555b792b6.png",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
