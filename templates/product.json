@@ -45,6 +45,12 @@
             "show_gift_card_recipient": true
           }
         },
+        "custom_liquid_qizF9d": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"ultimate-badges\"></div>"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -63,6 +69,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "custom_liquid_qizF9d",
         "description",
         "share"
       ],
