@@ -47,8 +47,18 @@
         },
         "custom_liquid_qizF9d": {
           "type": "custom_liquid",
+          "name": "Trust Badges",
           "settings": {
             "custom_liquid": "<br>\n<div class=\"ultimate-badges\"></div>"
+          }
+        },
+        "collapsible_tab_DwKmkr": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "none",
+            "content": "<ul><li>POWER TO REDUCE THE MAJOR ALLERGEN: Backed by over a decade of research, this revolutionary cat kibble formula simply and safely neutralizes Fel D 1, a common allergen in cat saliva.   </li></ul>",
+            "page": ""
           }
         },
         "description": {
@@ -70,6 +80,7 @@
         "quantity_selector",
         "buy_buttons",
         "custom_liquid_qizF9d",
+        "collapsible_tab_DwKmkr",
         "description",
         "share"
       ],
