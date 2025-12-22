@@ -48,7 +48,7 @@
         "custom_liquid_qizF9d": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<hr>\n<div class=\"ultimate-badges\"></div>"
+            "custom_liquid": "<br>\n<div class=\"ultimate-badges\"></div>"
           }
         },
         "description": {
