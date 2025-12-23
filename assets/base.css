@@ -3596,3 +3596,31 @@ details-disclosure > details {
   }
 }
 
+/* ================================
+   CUSTOM STYLES - Hover Mega Menu
+   ================================ */
+
+/* Show mega menu on hover */
+.mega-menu:hover > .mega-menu__content {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Keep the details open state working on hover */
+.mega-menu:hover > summary::after,
+.mega-menu:hover > summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+/* Make sure the dropdown doesn't disappear when moving mouse */
+.mega-menu__content {
+  top: 100%;
+  left: 0;
+}
+
+/* Smooth transition */
+.mega-menu > .mega-menu__content {
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}

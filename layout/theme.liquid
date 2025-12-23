@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
-    Now let's see!
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -376,5 +375,33 @@
     {%- endif -%}
 
     {% section 'sticky-note' %}
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const megaMenus = document.querySelectorAll('.mega-menu');
+        
+        megaMenus.forEach(menu => {
+          const details = menu;
+          const summary = menu.querySelector('summary');
+          
+          // Open on mouse enter
+          menu.addEventListener('mouseenter', function() {
+            details.setAttribute('open', '');
+          });
+          
+          // Close on mouse leave
+          menu.addEventListener('mouseleave', function() {
+            details.removeAttribute('open');
+          });
+          
+          // Optional: Prevent click from toggling (hover only)
+          // summary.addEventListener('click', function(e) {
+          //   e.preventDefault();
+          // });
+        });
+      });
+    </script>
+
+
   </body>
 </html>
