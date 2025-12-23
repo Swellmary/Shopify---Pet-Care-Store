@@ -15,7 +15,7 @@
         "vendor": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
+            "text": "",
             "text_style": "uppercase"
           }
         },
@@ -57,7 +57,7 @@
           "settings": {
             "heading": "More Details",
             "icon": "none",
-            "content": "<p>{{ product.metafields.custom.shipping.value }}</p>",
+            "content": "",
             "page": ""
           }
         },
