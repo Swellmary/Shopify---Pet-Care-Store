@@ -209,6 +209,7 @@
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
+                {% comment %} Author: Mary - Optimized Collapsible tab for Metafields !display for metafields w/o content {% endcomment %}
               {%- when 'collapsible_tab' -%}
                 {% liquid
                   assign has_content = false
@@ -248,6 +249,7 @@
                     </details>
                   </div>
                 {% endif %}
+                {% comment %} End of optimized collapsible tab for Metafields {% endcomment %}
                 
               {%- when 'quantity_selector' -%}
                 <div

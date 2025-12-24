@@ -1,0 +1,136 @@
+{{ 'section-why-choose-us.css' | asset_url | stylesheet_tag }}
+
+<div class="why-choose-us">
+  <div class="page-width">
+    
+    <!-- Section Heading -->
+    {% if section.settings.heading != blank %}
+      <h2 class="why-choose-us__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.subheading != blank %}
+      <p class="why-choose-us__subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <!-- Features Grid (THE LOOP!) -->
+    <div class="why-choose-us__grid">
+      {% for block in section.blocks %}
+        <div 
+          class="feature-card {% if forloop.first %}feature-card--first{% endif %} {% if forloop.last %}feature-card--last{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          <!-- Feature Number (using forloop.index) -->
+          <span class="feature-card__number">{{ forloop.index }}</span>
+
+          <!-- Icon -->
+          {% if block.settings.icon != blank %}
+            <div class="feature-card__icon">
+              {{ block.settings.icon }}
+            </div>
+          {% endif %}
+
+          <!-- Title -->
+          {% if block.settings.title != blank %}
+            <h3 class="feature-card__title">{{ block.settings.title }}</h3>
+          {% endif %}
+
+          <!-- Description -->
+          {% if block.settings.description != blank %}
+            <p class="feature-card__description">{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Show total count -->
+    <p class="why-choose-us__count">
+      {{ section.blocks.size }} reasons to shop with us!
+    </p>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Choose Us?"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Here's what makes our store special"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "🚚"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Free shipping on all orders over ₱1,000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🚚",
+            "title": "Free Shipping",
+            "description": "Free shipping on all orders over ₱1,000"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "💰",
+            "title": "Money Back Guarantee",
+            "description": "30-day money back guarantee"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🔒",
+            "title": "Secure Payment",
+            "description": "100% secure payment processing"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "⭐",
+            "title": "5-Star Reviews",
+            "description": "Trusted by thousands of customers"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
