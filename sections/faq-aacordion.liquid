@@ -1,47 +1,56 @@
 {% comment %}
-  FAQ Accordion Section
+  Modern FAQ Accordion Section
   Stylesheet: assets/faq-accordion.css
 {% endcomment %}
 
-{{ 'faq-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'section-faq-accordion.css' | asset_url | stylesheet_tag }}
 
 <div class="faq-section">
   {% if section.settings.title != blank %}
     <h2 class="faq-title">{{ section.settings.title }}</h2>
   {% endif %}
   
-  {% for block in section.blocks %}
-    <div class="faq-item" {{ block.shopify_attributes }}>
-      <button class="faq-question" aria-expanded="false">
-        <span>{{ block.settings.question }}</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        <p>{{ block.settings.answer }}</p>
+  <div class="faq-container">
+    {% for block in section.blocks %}
+      <div class="faq-item" {{ block.shopify_attributes }}>
+        <button class="faq-question" aria-expanded="false">
+          <span>{{ block.settings.question }}</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            {{ block.settings.answer }}
+          </div>
+        </div>
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    faqQuestions.forEach(function(button) {
+    faqItems.forEach(function(item) {
+      const button = item.querySelector('.faq-question');
+      
       button.addEventListener('click', function() {
-        const faqItem = this.parentElement;
-        const isActive = faqItem.classList.contains('active');
+        const isActive = item.classList.contains('active');
         
-        // Close all other items
-        document.querySelectorAll('.faq-item').forEach(function(item) {
-          item.classList.remove('active');
-          item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        // Close all items
+        faqItems.forEach(function(otherItem) {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
         });
         
-        // Toggle current item
+        // Open clicked item if it wasn't active
         if (!isActive) {
-          faqItem.classList.add('active');
-          this.setAttribute('aria-expanded', 'true');
+          item.classList.add('active');
+          button.setAttribute('aria-expanded', 'true');
         }
       });
     });
@@ -73,10 +82,10 @@
           "default": "What is your question?"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "answer",
           "label": "Answer",
-          "default": "Your answer goes here."
+          "default": "<p>Your answer goes here.</p>"
         }
       ]
     }
