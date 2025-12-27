@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
@@ -23,21 +24,21 @@
           "type": "faq",
           "settings": {
             "question": "What is your question?",
-            "answer": "Your answer goes here. Your answer goes here this is so amazing!"
+            "answer": "<p>Your answer goes here. Your answer goes here this is so amazing!</p>"
           }
         },
         "faq_iRb3k6": {
           "type": "faq",
           "settings": {
             "question": "What is your question?",
-            "answer": "Your answer goes here."
+            "answer": "<p>Your answer goes here.</p>"
           }
         },
         "faq_RBmE7Q": {
           "type": "faq",
           "settings": {
             "question": "What is your question?",
-            "answer": "Your answer goes here."
+            "answer": "<p>Your answer goes here.</p>"
           }
         }
       },
