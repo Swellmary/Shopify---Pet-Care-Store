@@ -95,11 +95,11 @@
 }
 
 .faq-item.active .faq-icon {
-  background: #1a1a2e;
+  background: #f0f0f5; 
 }
 
 .faq-item.active .faq-icon svg {
-  stroke: #ffffff;
+  stroke: #1a1a2e;
   transform: rotate(180deg);
 }
 
