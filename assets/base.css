@@ -2819,7 +2819,7 @@ details[open]:hover > .header__menu-item {
 }
 
 details[open] > .header__menu-item .icon-caret {
-  transform: rotate(0deg);
+  transform: rotate(deg); /*Updated by Mary: from 180 to 0, megamenu arrow hover positioning */
 }
 
 .header__active-menu-item {
