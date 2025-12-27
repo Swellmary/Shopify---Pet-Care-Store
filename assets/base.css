@@ -2819,7 +2819,7 @@ details[open]:hover > .header__menu-item {
 }
 
 details[open] > .header__menu-item .icon-caret {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 .header__active-menu-item {
