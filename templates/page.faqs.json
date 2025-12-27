@@ -15,9 +15,45 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "faq_aacordion_Ya9iwF": {
+      "type": "faq-aacordion",
+      "blocks": {
+        "faq_NLxiH6": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Your answer goes here. Your answer goes here this is so amazing!"
+          }
+        },
+        "faq_iRb3k6": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Your answer goes here."
+          }
+        },
+        "faq_RBmE7Q": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your question?",
+            "answer": "Your answer goes here."
+          }
+        }
+      },
+      "block_order": [
+        "faq_NLxiH6",
+        "faq_iRb3k6",
+        "faq_RBmE7Q"
+      ],
+      "name": "FAQ Accordion",
+      "settings": {
+        "title": "Frequently Asked Questions"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "faq_aacordion_Ya9iwF"
   ]
 }
