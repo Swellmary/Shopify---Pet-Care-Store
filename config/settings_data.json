@@ -16,7 +16,7 @@
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1600,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -150,6 +150,20 @@
       "testimonials": {
         "type": "testimonials",
         "blocks": {
+          "testimonial_gdbkVn": {
+            "type": "testimonial",
+            "settings": {
+              "quote": "This is an amazing store with great products and excellent customer service!",
+              "author": "John Smith"
+            }
+          },
+          "testimonial_yrD3JJ": {
+            "type": "testimonial",
+            "settings": {
+              "quote": "This is an amazing store with great products and excellent customer service!",
+              "author": "John Smith"
+            }
+          },
           "testimonial_kDAege": {
             "type": "testimonial",
             "settings": {
@@ -177,13 +191,23 @@
               "quote": "Just completed the Pet First Aid course as a refresher for my original training about 2 years ago. I was a little sceptical how beneficial the online course would be but I shouldn’t have been as it felt so much more detailed than my original classroom training. Each module had detailed explanations and examples and was in bite sized chunks if you needed to take a break.",
               "author": "Jessel"
             }
+          },
+          "testimonial_7UhJrg": {
+            "type": "testimonial",
+            "settings": {
+              "quote": "This is an amazing store with great products and excellent customer service!",
+              "author": "John Smith"
+            }
           }
         },
         "block_order": [
+          "testimonial_gdbkVn",
+          "testimonial_yrD3JJ",
           "testimonial_kDAege",
           "testimonial_ByqxpA",
           "testimonial_fRLRRe",
-          "testimonial_KkGhUL"
+          "testimonial_KkGhUL",
+          "testimonial_7UhJrg"
         ],
         "settings": {
           "heading": "What People Say"
@@ -191,6 +215,18 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "13694372020385051692": {
+        "type": "shopify://apps/analyzely-google-analytics-4/blocks/analyzely/b3a3a697-6f42-4507-a5ae-c447f6da2c9d",
+        "disabled": false,
+        "settings": {}
+      },
+      "1092553828153919622": {
+        "type": "shopify://apps/analyzely-google-analytics-4/blocks/consent-banner/b3a3a697-6f42-4507-a5ae-c447f6da2c9d",
+        "disabled": true,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
