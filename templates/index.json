@@ -81,7 +81,7 @@
     },
     "featured_collection_YFmU8W": {
       "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+      "name": "Best Sellers",
       "settings": {
         "collection": "best-sellers",
         "products_to_show": 4,
