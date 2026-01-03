@@ -1,4 +1,4 @@
-/* .testimonials-section {
+.testimonials-section {
   padding: 40px 20px;
   text-align: center;
 }
@@ -266,75 +266,4 @@
     padding: 25px;
     width: 95%;
   }
-} */
-
-/* ==========================================================================
-   TESTIMONIALS SECTION
-   Fully responsive, dark mode enabled, animation-ready
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   CSS Custom Properties (Theme Variables)
-   -------------------------------------------------------------------------- */
-:root {
-  /* Light mode colors */
-  --testimonials-bg: #f9fafb;
-  --testimonials-text: #1f2937;
-  --testimonials-text-muted: #6b7280;
-  --testimonials-card-bg: #ffffff;
-  --testimonials-card-border: #e5e7eb;
-  --testimonials-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --testimonials-card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --testimonials-star-filled: #fbbf24;
-  --testimonials-star-empty: #d1d5db;
-  --testimonials-quote-icon: #e5e7eb;
-  --testimonials-button-bg: #1f2937;
-  --testimonials-button-text: #ffffff;
-  --testimonials-button-hover-bg: #374151;
-  --testimonials-link-color: #2563eb;
-  --testimonials-avatar-border: #e5e7eb;
-  --testimonials-avatar-placeholder-bg: #e5e7eb;
-  --testimonials-avatar-placeholder-text: #6b7280;
-  
-  /* Spacing */
-  --testimonials-section-padding: 4rem 1.25rem;
-  --testimonials-card-padding: 2rem;
-  --testimonials-grid-gap: 1.5rem;
-  --testimonials-max-width: 72rem;
-  
-  /* Typography */
-  --testimonials-heading-size: 2rem;
-  --testimonials-subheading-size: 1.125rem;
-  --testimonials-quote-size: 1rem;
-  --testimonials-author-size: 1rem;
-  --testimonials-title-size: 0.875rem;
-  
-  /* Animation */
-  --testimonials-transition-duration: 0.3s;
-  --testimonials-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Dark mode overrides */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --testimonials-bg: #111827;
-    --testimonials-text: #f9fafb;
-    --testimonials-text-muted: #9ca3af;
-    --testimonials-card-bg: #1f2937;
-    --testimonials-card-border: #374151;
-    --testimonials-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    --testimonials-card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-    --testimonials-star-empty: #4b5563;
-    --testimonials-quote-icon: #374151;
-    --testimonials-button-bg: #f9fafb;
-    --testimonials-button-text: #1f2937;
-    --testimonials-button-hover-bg: #e5e7eb;
-    --testimonials-link-color: #60a5fa;
-    --testimonials-avatar-border: #374151;
-    --testimonials-avatar-placeholder-bg: #374151;
-    --testimonials-avatar-placeholder-text: #9ca3af;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   Section Container
