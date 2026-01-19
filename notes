@@ -1,13 +1,30 @@
-Section - Blocks
-Metafields
-Policy - FAQ
-Section Rendering
-Trust Badges
-Chatbox
-Navigation Hover dropdown display
+Section - Blocks -(what other people says / reviews)
+Metafields - customized only appears when there is a content added
+Policy - FAQ - page
+Section Rendering API - section cart
+Trust Badges - product page trust badges
+Chatbox - Flow
+Navigation Hover dropdown display - customized for better functionality
 
 TO ADD 
 - Add to cart or ..
 - quick-view
-- add lazy loading
+- add lazy loading - quick view modal
 - A/B Testing
+- https://app.outlier.ai/playground/696c36b0c5ffcee3d7198e89
+
+
+PROGRAMMING RULES:
+
+1. as Jr. always understand the "logic, architecture, and why"
+1. always read the code before pasting from AI or Library
+2. when watching tutorial, watch first without doing anything and just do understanding and listening then rewatch and langbiuild together - make codes like a movies before doing it, understand to plot and everything in it. 
+3. when learning new language, memorize the map.
+4. don't cut your focus on programming
+5. 
+6. 
+
+as Jr. always understand the "logic, architecture, and why"
+keep doing and writing project to build a mental map on "logic, architecture and why"
+knowing the map and how everything interact to each other is the most important thing to know as Jr.
+when to use libraries, when it's complex, repetitive, or solved problems (Date and Time, Data fectching, Compex UI Components, Security/Encryption)
