@@ -83,7 +83,7 @@
               >
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
-                    {%- if card_product.media[1] != null and show_secondary_image -%}
+              {%- if card_product.media[1] != null and show_secondary_image -%}
                 <img
                   srcset="
                     {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
@@ -103,6 +103,7 @@
                   height="{{ card_product.media[1].height }}"
                 >
               {%- endif -%}
+            </div>
           </div>
         {%- endif -%}
         <div class="card__content">
@@ -134,23 +135,10 @@
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-
+                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
               >
-            {%- endif -%}
-          
-          {%- comment -%} Quick View Button {%- endcomment -%}
-          <button 
-            type="button" 
-            class="quick-view-btn no-js-hidden" 
-            data-quick-view="{{ card_product.handle }}"
-            aria-label="{{ 'products.product.quick_view' | t | default: 'Quick view' }} - {{ card_product.title | escape }}"
-          >
-            <span>{{ 'products.product.quick_view' | t | default: 'Quick view' }}</span>
-          </button>
-          
-          {%- endif -%}
-                </div>
-              </div>
+                {{- 'products.product.on_sale' | t -}}
+              </span>
             {%- endif -%}
           </div>
         </div>
