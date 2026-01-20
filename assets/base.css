@@ -2819,7 +2819,7 @@ details[open]:hover > .header__menu-item {
 }
 
 details[open] > .header__menu-item .icon-caret {
-  transform: rotate(180deg);
+  transform: rotate(deg); /*Updated by Mary: from 180 to 0, megamenu arrow hover positioning */
 }
 
 .header__active-menu-item {
@@ -3595,3 +3595,15 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+/* Sticky Product Image | Author: Mary*/
+/* opening the metafields will not make the image shift upward or downward  */
+
+@media screen and (min-width: 750px) {
+  .product__media-wrapper {
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+  }
+}
+
+/* End Sticky Product Image| Author: Mary*/

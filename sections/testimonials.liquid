@@ -1,41 +1,36 @@
-<div class="testimonials" style="
-  padding: 40px 20px;
-  text-align: center;
-">
-  <h2 style="margin-bottom: 30px;">{{ section.settings.heading }}</h2>
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+
+<div class="testimonials-section" data-section-id="{{ section.id }}">
+  <h2 class="testimonials-heading">{{ section.settings.heading }}</h2>
   
-  <div class="testimonials-grid" style="
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  ">
-    {% for block in section.blocks %}
-      <div class="testimonial-card" style="
-        flex: 1 1 300px;
-        max-width: 350px;
-        padding: 25px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      ">
-        <p style="
-          font-style: italic;
-          font-size: 16px;
-          line-height: 1.6;
-          margin-bottom: 15px;
-        ">"{{ block.settings.quote }}"</p>
-        <span style="
-          font-weight: bold;
-          color: #666;
-        ">- {{ block.settings.author }}</span>
-      </div>
-    {% endfor %}
+  <div class="testimonials-wrapper">
+    <button class="slider-arrow slider-prev" aria-label="Previous">&#8249;</button>
+    
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="testimonial-card-inner">
+            <p class="testimonial-quote">"{{ block.settings.quote }}"</p>
+            <button class="see-more-btn" data-quote="{{ block.settings.quote | escape }}" data-author="{{ block.settings.author | escape }}">See More</button>
+          </div>
+          <span class="testimonial-author">- {{ block.settings.author }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <button class="slider-arrow slider-next" aria-label="Next">&#8250;</button>
+  </div>
+
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <p class="modal-quote"></p>
+      <span class="modal-author"></span>
+    </div>
   </div>
 </div>
+
+<script src="{{ 'section-testimonials.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -57,13 +52,13 @@
           "type": "textarea",
           "id": "quote",
           "label": "Quote",
-          "default": "Great store!"
+          "default": "This is an amazing store with great products and excellent customer service!"
         },
         {
           "type": "text",
           "id": "author",
           "label": "Author",
-          "default": "John"
+          "default": "John Smith"
         }
       ]
     }

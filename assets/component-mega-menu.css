@@ -1,5 +1,20 @@
+/* Author: Mary - fixing mega-menu hover dropdown*/
+
 .mega-menu {
   position: static;
+}
+
+.mega-menu > summary {
+  position: relative;
+}
+
+.mega-menu > summary::after {
+  content: '';
+  position: absolute;
+  height: 25px;
+  width: 100%;
+  bottom: -25px;
+  left: 0;
 }
 
 .mega-menu__content {
@@ -71,7 +86,7 @@
 .mega-menu__link:hover,
 .mega-menu__link--active {
   color: rgb(var(--color-foreground));
-  text-decoration: underline;
+  text-decoration: none; /* Author: Mary - updated underline to none */
 }
 
 .mega-menu__link--active:hover {

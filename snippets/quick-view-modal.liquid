@@ -1,0 +1,86 @@
+{% comment %}
+  Quick View Modal - Dawn Theme Compatible
+  Created for PetCare Store
+{% endcomment %}
+
+<div id="QuickViewModal" class="quick-view-modal" aria-hidden="true">
+  <div class="quick-view-overlay" data-quick-view-close></div>
+  <div class="quick-view-container" role="dialog" aria-modal="true" aria-labelledby="QuickViewTitle">
+    <button class="quick-view-close" data-quick-view-close aria-label="{{ 'accessibility.close' | t }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <div class="quick-view-content">
+      <div class="quick-view-loading">
+        <div class="loading-spinner"></div>
+      </div>
+      
+      <div class="quick-view-product" style="display: none;">
+        <!-- Left: Product Images -->
+        <div class="quick-view-media">
+          <div class="quick-view-main-image">
+            <img id="QuickViewMainImage" src="" alt="" loading="lazy">
+          </div>
+          <div class="quick-view-thumbnails" id="QuickViewThumbnails"></div>
+        </div>
+        
+        <!-- Right: Product Info -->
+        <div class="quick-view-info">
+          <div class="quick-view-vendor" id="QuickViewVendor"></div>
+          <h2 class="quick-view-title h2" id="QuickViewTitle"></h2>
+          
+          <div class="quick-view-price" id="QuickViewPrice"></div>
+          
+          <div class="quick-view-description" id="QuickViewDescription"></div>
+          
+          <!-- Product Form -->
+          <div class="quick-view-form-wrapper">
+            <form id="QuickViewForm" action="/cart/add" method="post" enctype="multipart/form-data">
+              <input type="hidden" name="id" id="QuickViewVariantId" value="">
+              
+              <!-- Variants -->
+              <div class="quick-view-variants" id="QuickViewVariants"></div>
+              
+              <!-- Quantity -->
+              <div class="quick-view-quantity">
+                <label class="form__label" for="QuickViewQuantity">{{ 'products.product.quantity.label' | t }}</label>
+                <div class="quantity">
+                  <button class="quantity__button" type="button" data-action="decrease" aria-label="{{ 'products.product.quantity.decrease' | t }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </button>
+                  <input class="quantity__input" type="number" name="quantity" id="QuickViewQuantity" min="1" value="1">
+                  <button class="quantity__button" type="button" data-action="increase" aria-label="{{ 'products.product.quantity.increase' | t }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Add to Cart Button -->
+              <div class="quick-view-buttons">
+                <button type="submit" class="quick-view-add-btn button button--full-width" id="QuickViewAddBtn">
+                  <span>{{ 'products.product.add_to_cart' | t }}</span>
+                </button>
+              </div>
+              
+              <!-- Availability -->
+              <div class="quick-view-availability" id="QuickViewAvailability"></div>
+            </form>
+          </div>
+          
+          <!-- View Full Details Link -->
+          <a href="" class="quick-view-details-link link" id="QuickViewLink">
+            {{ 'products.product.view_full_details' | t | default: 'View full details' }} →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

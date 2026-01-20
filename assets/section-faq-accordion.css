@@ -1,0 +1,176 @@
+/* ================================
+   Modern FAQ Accordion Styles
+   ================================ */
+
+.faq-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+/* Section Title */
+.faq-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 50px;
+  letter-spacing: -0.5px;
+}
+
+/* FAQ Container */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Individual FAQ Item */
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.faq-item:hover {
+  border-color: #d0d0d0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item.active {
+  border-color: #1a1a2e;
+  box-shadow: 0 4px 20px rgba(26, 26, 46, 0.12);
+}
+
+/* Question Button */
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 24px 28px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a2e;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-family: inherit;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+}
+
+.faq-question:hover {
+  background: #f9f9fb;
+}
+
+.faq-item.active .faq-question {
+  background: #f9f9fb;
+}
+
+/* Icon Container */
+.faq-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background: #f0f0f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.faq-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: #1a1a2e;
+  stroke-width: 2.5;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  background: #f0f0f5; 
+}
+
+.faq-item.active .faq-icon svg {
+  stroke: #1a1a2e;
+  transform: rotate(180deg);
+}
+
+/* Answer Section */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-answer-inner {
+  padding: 0 28px 24px 28px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Accessibility */
+.faq-question:focus {
+  outline: none;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid #1a1a2e;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+
+@media (max-width: 768px) {
+  .faq-section {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+
+  .faq-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .faq-container {
+    gap: 12px;
+  }
+
+  .faq-question {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .faq-answer-inner {
+    padding: 0 20px 20px 20px;
+    font-size: 14px;
+  }
+
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+  }
+
+  .faq-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+}

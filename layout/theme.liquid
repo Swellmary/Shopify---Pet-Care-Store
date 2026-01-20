@@ -347,7 +347,8 @@
       window.quickOrderListStrings = {
         itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
         itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
-        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
+        itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity:
+        '[quantity]' }}`,
         itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
         viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
         each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
@@ -376,5 +377,39 @@
     {%- endif -%}
 
     {% section 'sticky-note' %}
+
+    {% comment %} Author: Mary | Mega-Menu Hover JS {% endcomment %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const megaMenus = document.querySelectorAll('.mega-menu');
+        
+        megaMenus.forEach(menu => {
+          const details = menu;
+          const summary = menu.querySelector('summary');
+          
+          // Open on mouse enter
+          menu.addEventListener('mouseenter', function() {
+            details.setAttribute('open', '');
+          });
+          
+          // Close on mouse leave
+          menu.addEventListener('mouseleave', function() {
+            details.removeAttribute('open');
+          });
+          
+          // Optional: Prevent click from toggling (hover only)
+          // summary.addEventListener('click', function(e) {
+          //   e.preventDefault();
+          // });
+        });
+      });
+    </script>
+    {% comment %} End | Author: Mary | Mega-Menu Hover JS {% endcomment %}
+
+    {% comment %} Author: Mary | Quick View Modal {% endcomment %}
+    {{ 'quick-view.css' | asset_url | stylesheet_tag }}
+    {% render 'quick-view-modal' %}
+    <script src="{{ 'quick-view.js' | asset_url }}" defer="defer"></script>
+
   </body>
 </html>

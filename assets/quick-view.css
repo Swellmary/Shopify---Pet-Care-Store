@@ -1,0 +1,494 @@
+/* ==========================================================================
+   Quick View Modal - Dawn Theme Compatible
+   ========================================================================== */
+
+/* Modal Overlay */
+.quick-view-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s ease;
+}
+
+.quick-view-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.quick-view-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 18, 18, 0.5);
+  cursor: pointer;
+}
+
+/* Modal Container */
+.quick-view-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 95%;
+  max-width: 1000px;
+  max-height: 90vh;
+  background: rgb(var(--color-background));
+  border-radius: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.quick-view-modal.is-open .quick-view-container {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close Button */
+.quick-view-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgb(var(--color-background));
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-view-close:hover {
+  background: rgba(var(--color-foreground), 0.04);
+  border-color: rgba(var(--color-foreground), 0.2);
+}
+
+.quick-view-close svg {
+  width: 20px;
+  height: 20px;
+  color: rgb(var(--color-foreground));
+}
+
+/* Content Area */
+.quick-view-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Loading State */
+.quick-view-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(var(--color-foreground), 0.1);
+  border-top-color: rgb(var(--color-foreground));
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Product Layout */
+.quick-view-product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+/* Media Section */
+.quick-view-media {
+  padding: 30px;
+  background: rgba(var(--color-foreground), 0.02);
+}
+
+.quick-view-main-image {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgb(var(--color-background));
+}
+
+.quick-view-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Thumbnails */
+.quick-view-thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.quick-view-thumbnail {
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-view-thumbnail:hover,
+.quick-view-thumbnail.is-active {
+  opacity: 1;
+  border-color: rgb(var(--color-foreground));
+}
+
+.quick-view-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info Section */
+.quick-view-info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quick-view-vendor {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(var(--color-foreground), 0.55);
+}
+
+.quick-view-title {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground));
+}
+
+/* Price */
+.quick-view-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+}
+
+.quick-view-price .price-item--regular {
+  font-weight: 400;
+}
+
+.quick-view-price .price-item--sale {
+  color: rgb(var(--color-foreground));
+}
+
+.quick-view-price .price-item--compare {
+  text-decoration: line-through;
+  color: rgba(var(--color-foreground), 0.55);
+  font-size: 1.4rem;
+}
+
+.quick-view-price .price__badge-sale {
+  background: rgb(var(--color-badge-background));
+  color: rgb(var(--color-badge-foreground));
+  padding: 2px 8px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Description */
+.quick-view-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.75);
+  max-height: 100px;
+  overflow: hidden;
+}
+
+/* Variants */
+.quick-view-variants {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quick-view-variant-group label {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: rgb(var(--color-foreground));
+}
+
+.quick-view-variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-view-variant-option {
+  padding: 8px 16px;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  border-radius: 4px;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-view-variant-option:hover {
+  border-color: rgb(var(--color-foreground));
+}
+
+.quick-view-variant-option.is-selected {
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  border-color: rgb(var(--color-foreground));
+}
+
+.quick-view-variant-option.is-unavailable {
+  opacity: 0.5;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* Quantity */
+.quick-view-quantity {
+  margin-top: 5px;
+}
+
+.quick-view-quantity .form__label {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.quick-view-quantity .quantity {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.quick-view-quantity .quantity__button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.quick-view-quantity .quantity__button:hover {
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.quick-view-quantity .quantity__input {
+  width: 50px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-left: 1px solid rgba(var(--color-foreground), 0.2);
+  border-right: 1px solid rgba(var(--color-foreground), 0.2);
+  text-align: center;
+  font-size: 1.4rem;
+  background: transparent;
+  -moz-appearance: textfield;
+}
+
+.quick-view-quantity .quantity__input::-webkit-outer-spin-button,
+.quick-view-quantity .quantity__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Add to Cart Button */
+.quick-view-buttons {
+  margin-top: 10px;
+}
+
+.quick-view-add-btn {
+  width: 100%;
+  min-height: 50px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.quick-view-add-btn:hover {
+  background: rgba(var(--color-button), 0.85);
+}
+
+.quick-view-add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quick-view-add-btn.is-loading {
+  position: relative;
+  color: transparent;
+}
+
+.quick-view-add-btn.is-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Availability */
+.quick-view-availability {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-view-availability.in-stock {
+  color: rgb(var(--color-success, 62, 214, 96));
+}
+
+.quick-view-availability.out-of-stock {
+  color: rgb(var(--color-error, 214, 62, 62));
+}
+
+/* View Details Link */
+.quick-view-details-link {
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.quick-view-details-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Quick View Button on Product Card */
+.quick-view-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 10px 20px;
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  border-radius: 4px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover .quick-view-btn,
+.card__inner:hover .quick-view-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.quick-view-btn:hover {
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+/* Responsive Design */
+@media screen and (max-width: 989px) {
+  .quick-view-container {
+    max-width: 600px;
+    max-height: 95vh;
+  }
+  
+  .quick-view-product {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-view-media {
+    padding: 20px;
+  }
+  
+  .quick-view-info {
+    padding: 20px;
+  }
+  
+  .quick-view-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .quick-view-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    height: 100%;
+    border-radius: 0;
+  }
+  
+  .quick-view-content {
+    max-height: 100vh;
+  }
+  
+  .quick-view-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* Body scroll lock when modal is open */
+body.quick-view-open {
+  overflow: hidden;
+}

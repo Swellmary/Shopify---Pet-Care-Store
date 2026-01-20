@@ -45,6 +45,22 @@
             "show_gift_card_recipient": true
           }
         },
+        "custom_liquid_qizF9d": {
+          "type": "custom_liquid",
+          "name": "Trust Badges",
+          "settings": {
+            "custom_liquid": "<br>\n<div class=\"ultimate-badges\"></div>"
+          }
+        },
+        "collapsible_tab_6PTRKY": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredients",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.shipping.value }}</p>",
+            "page": ""
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -63,6 +79,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "custom_liquid_qizF9d",
+        "collapsible_tab_6PTRKY",
         "description",
         "share"
       ],
